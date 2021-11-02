@@ -1,0 +1,19 @@
+fc = gfortran
+fclags = -o3 --Wall
+ldflags = -lm
+
+all: mmf
+
+#Linking
+mmf: main.o mm.o
+	$(fc) -o $@ $^ $(ldflags)
+
+#Compiling
+mm.o: mm.f90
+	$(fc) -c $(fcflags) $<
+
+main.o: main.f90
+	$(fc) -c $(fcflags) $<
+
+clean:
+	rm *.o
