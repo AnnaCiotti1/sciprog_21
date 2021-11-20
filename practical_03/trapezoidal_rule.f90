@@ -21,10 +21,10 @@ end do
 
 !Addition of partial_sum to sum_tan and multiplication by (b-a)/2*N
 sum_tan = (b-a)/24*(sum_tan+partial_sum)
-write (6,*) sum_tan
+write (6,*) 'The area of the curve according to the trapezoidal rule is ', sum_tan
 
 !Comparison with log(2)
 diff = sum_tan - log(2.0)
-write (6,*) diff
+write (6,*) 'The difference between the area calculated with the trapezoidal rule and log(2) is ', diff
 
 end program trapezoidal_rule
