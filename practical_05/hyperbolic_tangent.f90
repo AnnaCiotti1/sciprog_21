@@ -3,25 +3,27 @@ module tangents
 
 contains
 
-   !Creation of the function to calculate the hyperbolic tangent using the MacLaurin series
-   function mac_laurin(a, b) result(c)
-      real(kind=4) :: a, b, c
-      integer(kind=4) :: n
-      n = 0
-      c = 0
-      do while (abs(a**(2*n+1)/(2*n+1)) .ge. b)
-          c = c + a**(2*n+1)/(2*n+1)
-          n = n+1
-      end do
-      return
-   end function mac_laurin
+!Creation of the function to calculate the hyperbolic tangent using the MacLaurin series
+function mac_laurin(a, b) result(c)
+   implicit none
+   real(kind=4) :: a, b, c
+   integer(kind=4) :: n
+   n = 0
+   c = 0
+   do while (abs(a**(2*n+1)/(2*n+1)) .ge. b)
+       c = c + a**(2*n+1)/(2*n+1)
+       n = n+1
+   end do
+   return
+end function mac_laurin
 
-   !Creation of the function to calculate the hyperbolic tangent using the logarithmic form
-   function logarithm(a) result(b)
-      real(kind=4) :: a, b
-      b = 0.5*(log(1+a)-log(1-a))
-      return
-   end function logarithm
+!Creation of the function to calculate the hyperbolic tangent using the logarithmic form
+function logarithm(a) result(b)
+   implicit none
+   real(kind=4) :: a, b
+   b = 0.5*(log(1+a)-log(1-a))
+   return
+end function logarithm
 
 end module tangents
 
@@ -51,8 +53,9 @@ do i = 1, 181
    x = x + 0.01
 end do
 
-print *, 'The MacLaurin results for x comprised between -0.9 and 0.9, with a variation of 0.01, are ', array_mac
-
-print *, 'The logarithmic results for x comprised between -0.9 and 0.9, with a variation of 0.01, are ', array_log
+!Output of the results to the screen
+write(6,*) 'The MacLaurin results for x comprised between -0.9 and 0.9, with a variation of 0.01, are ', array_mac
+write(6,*)
+write(6,*) 'The logarithmic results for x comprised between -0.9 and 0.9, with a variation of 0.01, are ', array_log
 
 end program hyperbolic_tangent
