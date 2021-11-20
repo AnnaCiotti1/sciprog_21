@@ -1,7 +1,11 @@
 program trapezoidal_rule
+
+!Delcaration of variables
 implicit none
 real (kind=4) :: sum_tan, x, a, increment, b, diff, partial_sum
 integer (kind=4) :: i
+
+!Initialization of variables
 a = 0.0
 b = 3.1415927/3
 increment = b/12
@@ -9,12 +13,7 @@ sum_tan = tan(a) + tan(b)
 diff = 0.0
 partial_sum = 0.0
 
-!Generation of 11 x-points between a and b
-do i = 1, 11
-   x = a + increment*i
-end do
-
-!Sum of 2*tan(x) of the 11 points between a and b
+!Generation of 11 x-points between a and b and sum of 2*tan(x) of the 11 points between a and b
 do i = 1, 11
    x = a + increment*i
    partial_sum = partial_sum + 2*tan(x)
