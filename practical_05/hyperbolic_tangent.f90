@@ -1,9 +1,9 @@
-!Creation of a module with the functions
+!Module with the functions to calculate hyperbolic tangents
 module tangents
 
 contains
 
-!Creation of the function to calculate the hyperbolic tangent using the MacLaurin series
+!Function to calculate the hyperbolic tangent using the MacLaurin series
 function mac_laurin(a, b) result(c)
    implicit none
    real(kind=4) :: a, b, c
@@ -17,7 +17,7 @@ function mac_laurin(a, b) result(c)
    return
 end function mac_laurin
 
-!Creation of the function to calculate the hyperbolic tangent using the logarithmic form
+!Function to calculate the hyperbolic tangent using the logarithmic form
 function logarithm(a) result(b)
    implicit none
    real(kind=4) :: a, b

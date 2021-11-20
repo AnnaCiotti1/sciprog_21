@@ -13,7 +13,8 @@ subroutine polynomial_generation(x, order, poly_array)
    poly_array = 0
    fact = order-1
    do i = 1, order-2
-       fact = fact*i
+      fact = fact*i
+      fact = fact*i
    end do
    poly_array = x**(order-1)/fact
 end subroutine polynomial_generation
@@ -45,7 +46,7 @@ allocate(poly_array(order))
 !Initialization of the first term of the array that does not contain x
 poly_array(1) = 1
 
-!Generation of the powers of x up to the chosen order, and storage of the values in the array
+!Evaluation of the powers of x up to the chosen order, and storage of the values in the array
 do i = 2, order
    call polynomial_generation(x, i, poly_array(i))
 end do
