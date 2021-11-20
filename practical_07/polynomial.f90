@@ -4,18 +4,19 @@ module subroutines
 contains
 
 !Subroutine for the generation of the powers of x that contribute to the polynomial expression f(x)
-   subroutine polynomial_generation(x, order, poly_array)
-      integer(kind=4), intent(in) :: order
-      real(kind=8), intent(in) :: x
-      real(kind=8), intent(out) :: poly_array
-      integer(kind=4) :: i, fact
-      poly_array = 0
-      fact = order-1
-      do i = 1, order-2
-          fact = fact*i
-      end do
-      poly_array = x**(order-1)/fact
-   end subroutine polynomial_generation
+subroutine polynomial_generation(x, order, poly_array)
+   implicit none
+   integer(kind=4), intent(in) :: order
+   real(kind=8), intent(in) :: x
+   real(kind=8), intent(out) :: poly_array
+   integer(kind=4) :: i, fact
+   poly_array = 0
+   fact = order-1
+   do i = 1, order-2
+       fact = fact*i
+   end do
+   poly_array = x**(order-1)/fact
+end subroutine polynomial_generation
 
 end module subroutines
 
